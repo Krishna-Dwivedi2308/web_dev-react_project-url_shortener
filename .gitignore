@@ -1,0 +1,53 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Build output
+dist/
+build/
+dist-ssr/
+.next/
+.out/
+
+# Local environment files
+*.local
+.env*
+!.env.example
+
+# Editor directories and files
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Prettier / lint / formatting
+.prettiercache
+
+# Optional: test coverage reports
+coverage/
+
+# Optional: Storybook static build
+storybook-static/
+
+# Optional: typescript build output
+*.tsbuildinfo
+
+# Optional: lockfiles (only if you're not committing them)
+# package-lock.json
+# yarn.lock
