@@ -1,20 +1,30 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Button } from './ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Link2, LogOut } from 'lucide-react'
+import { UrlState } from '@/Context'
 const Header = () => {
-  const user = true
+  const {user,isAuthenticated } = UrlState()
+  console.log(isAuthenticated);
+  console.log(user?.role);
+  
+
   const navigate = useNavigate()
   const loginNavigation = () => (navigate("/auth"))
+  const location = useLocation()
+  const isAuthRoute = location.pathname.startsWith('/auth')
+
+
+
   return (
     <nav className='m-1 p-1 flex justify-between items-center' >
       <Link to='/'>
         <img src="/logo.png" className='h-16 rounded-lg' alt="Qlinky Logo" />
       </Link>
       <div>
-        {!user ? <Button onClick={loginNavigation}>Login</Button> : (
+        {!(user?.role==='authenticated') ? <Button onClick={loginNavigation}>{isAuthRoute?'Welcome to Login/Signup Page':'Login'}</Button> : (
           <DropdownMenu>
             <DropdownMenuTrigger>
               <Avatar>
@@ -26,14 +36,14 @@ const Header = () => {
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <Link2/>
+                <Link2 />
                 My Links</DropdownMenuItem>
               <DropdownMenuItem className='text-red-500'>
                 <span className='flex items-center'>
-                <LogOut/>
-                Logout
+                  <LogOut />
+                  Logout
                 </span>
-                </DropdownMenuItem>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         )}
