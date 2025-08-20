@@ -37,12 +37,25 @@ const LandingPage = () => {
         <Button type='submit' variant='destructive'>Shorten</Button>
       </form>
       <br />
-      <img className="w-6/7 mt-1 mx-auto" src="public/heroSection2.jpg" alt="Banner" />
+      <img className="w-6/7 mt-1 mx-auto" src="/heroSection2.jpg" alt="Banner" />
       <Accordion type="multiple" collapsible className='w-full md:px-11'>
         <AccordionItem value="item-1">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
+          <AccordionTrigger>What is the way forward?</AccordionTrigger>
           <AccordionContent>
-            Yes. It adheres to the WAI-ARIA design pattern.
+            Either Login?Signup first or Enter your long url in the input box and you will be redirected automatically . 
+          </AccordionContent>
+        </AccordionItem>
+        
+        <AccordionItem value="item-2">
+          <AccordionTrigger>Can I generate QR code for my Link?</AccordionTrigger>
+          <AccordionContent>
+            Yes, you will get a QR Code almost instantaneously for your Link. 
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-3">
+          <AccordionTrigger>Will I get Click monitoring for the QR also?</AccordionTrigger>
+          <AccordionContent>
+            No, as of now , we monitor only the short url provided by us.            
           </AccordionContent>
         </AccordionItem>
       </Accordion>
